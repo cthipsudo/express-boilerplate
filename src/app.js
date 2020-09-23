@@ -15,10 +15,6 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === 'production') {
@@ -30,4 +26,7 @@ app.use(function errorHandler(error, req, res, next) {
   res.status(500).json(response);
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
 module.exports = app;
